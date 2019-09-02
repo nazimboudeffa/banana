@@ -3,10 +3,6 @@
 Banana is a funny open source JavaScript application framework
 
 ## Installing
-Install gulp globally
-
-    $ npm install gulp -g
-
 Install the `package.json` modules
 
     $ npm install
