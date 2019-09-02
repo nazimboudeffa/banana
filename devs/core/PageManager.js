@@ -10,7 +10,9 @@ Banana.PageManager = function(application, pendingPage){
   * @property {Banana.Application} banana - This is a reference to the currently running Application
   */
   this.application = application;
+
   this.pages = [];
+  
   this._pendingPage = pendingPage;
 
 };
@@ -28,15 +30,16 @@ Banana.PageManager.prototype = {
 
   add: function(key, page){
 
-    newPage = new Banana.Page(this.application, page);
+    newPage = page;
     this.pages[key] = newPage;
     this.start(key);
+
     return newPage;
 
   },
 
   start: function (key){
-    console.log(this.pages[key]);
+
     this.pages[key].createComponents.call();
 
   }

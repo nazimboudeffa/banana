@@ -8,5 +8,5 @@
  * @namespace Banana
  */
  var Banana = Banana || {
-
+   VERSION: '1.0.0',
  };

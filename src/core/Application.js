@@ -11,8 +11,12 @@ Banana.Application = function(config){
   * @default
   */
   this.target = null;
+
   this.page = null;
+
   this.parseConfig(config);
+
+  return this;
 };
 
 Banana.Application.prototype = {
@@ -22,8 +26,8 @@ Banana.Application.prototype = {
   * @method Banana.Application#parseConfig
   * @protected
   */
-  parseConfig: function (config)
-  {
+  parseConfig: function(config){
+
     this.config = config;
     if (config.target != null){
       this.target = config.target;
@@ -31,16 +35,25 @@ Banana.Application.prototype = {
       this.target = 'target';
     }
     if (config.page) {
-      this.page = new Banana.Page(this, config.page);
+      this.page = new Banana.PageManager(this, config.page);
     }
+
   },
+
   run: function(){
+
     this.showDebugHeader();
+
     this.add = new Banana.BananaControlFactory(this);
-    this.page.components.createComponents();
+
+    this.page.boot();
+
   },
+
   showDebugHeader: function (){
-    console.log('Banana v1.0.0')
+
+    console.log('Banana v1.0.0');
+
   }
 };
 

@@ -13,3 +13,16 @@ gulp.task('scripts', function() {
     .pipe(concat('all.js'))
     .pipe(gulp.dest('./build/'));
 });
+
+gulp.task('scripts-devs', function() {
+  return gulp.src([
+    'devs/Banana.js',
+    'devs/core/Application.js',
+    'devs/core/PageManager.js',
+    'devs/core/Page.js',
+    'devs/controls/BananaControlFactory.js',
+    'devs/controls/Text.js',
+    ])
+    .pipe(concat('all.js'))
+    .pipe(gulp.dest('./build/'));
+});

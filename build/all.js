@@ -39,8 +39,8 @@ Banana.Application.prototype = {
   * @method Banana.Application#parseConfig
   * @protected
   */
-  parseConfig: function (config)
-  {
+  parseConfig: function(config){
+
     this.config = config;
     if (config.target != null){
       this.target = config.target;
@@ -50,18 +50,23 @@ Banana.Application.prototype = {
     if (config.page) {
       this.page = new Banana.PageManager(this, config.page);
     }
+
   },
 
   run: function(){
+
     this.showDebugHeader();
 
     this.add = new Banana.BananaControlFactory(this);
-    
+
     this.page.boot();
+
   },
 
   showDebugHeader: function (){
-    console.log('Banana v1.0.0')
+
+    console.log('Banana v1.0.0');
+
   }
 };
 
@@ -79,7 +84,9 @@ Banana.PageManager = function(application, pendingPage){
   * @property {Banana.Application} banana - This is a reference to the currently running Application
   */
   this.application = application;
+
   this.pages = [];
+  
   this._pendingPage = pendingPage;
 
 };
@@ -97,15 +104,16 @@ Banana.PageManager.prototype = {
 
   add: function(key, page){
 
-    newPage = new Banana.Page(this.application, page);
+    newPage = page;
     this.pages[key] = newPage;
     this.start(key);
+
     return newPage;
 
   },
 
   start: function (key){
-    console.log(this.pages[key]);
+
     this.pages[key].createComponents.call();
 
   }
@@ -121,19 +129,22 @@ Banana.PageManager.prototype.constructor = Banana.PageManager;
 */
 
 Banana.Page = function(application, page){
+
   /**
   * @property {Banana.Application} banana - This is a reference to the currently running Application
   */
   this.application = null;
 
   this.page = null;
+
 };
 
 Banana.Page.prototype = {
+
   createComponents: function(){
-    console.log("test");
-    this.page.createComponents();
+    
   }
+
 };
 
 Banana.Page.prototype.constructor = Banana.Page;

@@ -26,8 +26,8 @@ Banana.Application.prototype = {
   * @method Banana.Application#parseConfig
   * @protected
   */
-  parseConfig: function (config)
-  {
+  parseConfig: function(config){
+
     this.config = config;
     if (config.target != null){
       this.target = config.target;
@@ -37,18 +37,23 @@ Banana.Application.prototype = {
     if (config.page) {
       this.page = new Banana.PageManager(this, config.page);
     }
+
   },
 
   run: function(){
+
     this.showDebugHeader();
 
     this.add = new Banana.BananaControlFactory(this);
-    
+
     this.page.boot();
+
   },
 
   showDebugHeader: function (){
-    console.log('Banana v1.0.0')
+
+    console.log('Banana v1.0.0');
+
   }
 };
 

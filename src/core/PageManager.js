@@ -5,25 +5,45 @@
 */
 
 Banana.PageManager = function(application, pendingPage){
+
   /**
   * @property {Banana.Application} banana - This is a reference to the currently running Application
   */
   this.application = application;
 
+  this.pages = [];
+  
   this._pendingPage = pendingPage;
+
 };
 
 Banana.PageManager.prototype = {
+
   boot: function(){
+
     if (typeof this._pendingPage === 'object')
     {
-      console.log("pending")
-      console.log(this._pendingPage);
-      newPage = this._pendingPage;
-      //newPage.application = this.application;
+      this.add('default', this._pendingPage)
     }
+
+  },
+
+  add: function(key, page){
+
+    newPage = page;
+    this.pages[key] = newPage;
+    this.start(key);
+
     return newPage;
+
+  },
+
+  start: function (key){
+
+    this.pages[key].createComponents.call();
+
   }
+
 };
 
 Banana.PageManager.prototype.constructor = Banana.PageManager;

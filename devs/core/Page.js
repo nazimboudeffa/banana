@@ -5,19 +5,22 @@
 */
 
 Banana.Page = function(application, page){
+
   /**
   * @property {Banana.Application} banana - This is a reference to the currently running Application
   */
   this.application = null;
 
   this.page = null;
+
 };
 
 Banana.Page.prototype = {
+
   createComponents: function(){
-    console.log("test");
-    this.page.createComponents();
+    
   }
+
 };
 
 Banana.Page.prototype.constructor = Banana.Page;
