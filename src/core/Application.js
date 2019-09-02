@@ -5,12 +5,20 @@
 */
 
 Banana.Application = function(config){
-  this.target = config.target || document.createElement('div');
+  console.log(config)
+  if (config != null){
+    this.target = config.target;
+  } else {
+    var target = document.createElement('div');
+    target.setAttribute('id', 'target');
+    var textNode = document.createTextNode("Hello Banana");
+    document.getElementById('target').appendChild(textNode);
+  }
 };
 
 Banana.Application.prototype = {
   run: function(){
-    var textNode = document.createTextNode("Hello Banana");
-		document.getElementById(this.target).appendChild(textNode);
+    this.add = new Banana.Control(this);
+    this.page = new Banana.Page(this);
   }
 };

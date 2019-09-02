@@ -4,12 +4,11 @@
 * @license      {@link https://github.com/nazimboudeffa/banana/blob/master/license.txt|MIT License}
 */
 
-Banana.Page = function(){
-
+Banana.Page = function(app){
+  this.app = app;
 };
 
 Banana.Page.prototype = {
-  addControl: function(){
-
+  createComponents: function(){
   }
 };

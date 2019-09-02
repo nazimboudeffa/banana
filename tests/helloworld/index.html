@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>Hello World</title>
 	</head>
-	<body id="body">
+	<body>
 	<style>
 		body{
 			background-color:black;
@@ -12,20 +12,20 @@
 		}
 	</style>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../../build/Application.min.js"></script>
-		<div id="target"></div>
+	<script type="text/javascript" src="../../build/all.js"></script>
+		<div id="app"></div>
 		<script>
-			var widget = Banana.Page({
-	      createComponents : function(){
-					this.addControl("Hello World!");
+			var page = Banana.Page({
+	      createComponents: function(){
+					this.add.text("Hello World!");
+					console.log("ok")
 	      }
 			});
 			$(document).ready(function(){
 				var config = {};
-				config.target = 'target';
+				config.target = 'app';
 			  var app = new Banana.Application(config);
-		    app.run(new widget());
+		    app.run();
 			});
 		</script>
 	</body>
