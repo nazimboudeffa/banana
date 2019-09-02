@@ -46,7 +46,7 @@ Banana.Application.prototype = {
 
     this.showDebugHeader();
 
-    this.add = new Banana.BananaControlFactory(this);
+    this.add = new Banana.ApplicationControlFactory(this);
 
     this.page.boot();
 
@@ -55,7 +55,7 @@ Banana.Application.prototype = {
   showDebugHeader: function (){
 
     var v = Banana.VERSION;
-    console.log('Banana v' + v + ' | http://bananajs.com');
+    console.log('Banana v' + v + ' | http://kawa-games.ovh/bananajs');
 
   }
 };
