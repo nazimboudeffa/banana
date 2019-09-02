@@ -8,7 +8,7 @@
  * @namespace Banana
  */
  var Banana = Banana || {
-
+   VERSION: '1.0.0',
  };
 
 /**
@@ -24,8 +24,12 @@ Banana.Application = function(config){
   * @default
   */
   this.target = null;
+
   this.page = null;
+
   this.parseConfig(config);
+
+  return this;
 };
 
 Banana.Application.prototype = {
@@ -44,14 +48,18 @@ Banana.Application.prototype = {
       this.target = 'target';
     }
     if (config.page) {
-      this.page = new Banana.Page(this, config.page);
+      this.page = new Banana.PageManager(this, config.page);
     }
   },
+
   run: function(){
     this.showDebugHeader();
+
     this.add = new Banana.BananaControlFactory(this);
-    this.page.components.createComponents();
+    
+    this.page.boot();
   },
+
   showDebugHeader: function (){
     console.log('Banana v1.0.0')
   }
@@ -66,25 +74,42 @@ Banana.Application.prototype.constructor = Banana.Application;
 */
 
 Banana.PageManager = function(application, pendingPage){
+
   /**
   * @property {Banana.Application} banana - This is a reference to the currently running Application
   */
   this.application = application;
-
+  this.pages = [];
   this._pendingPage = pendingPage;
+
 };
 
 Banana.PageManager.prototype = {
+
   boot: function(){
+
     if (typeof this._pendingPage === 'object')
     {
-      console.log("pending")
-      console.log(this._pendingPage);
-      newPage = this._pendingPage;
-      //newPage.application = this.application;
+      this.add('default', this._pendingPage)
     }
+
+  },
+
+  add: function(key, page){
+
+    newPage = new Banana.Page(this.application, page);
+    this.pages[key] = newPage;
+    this.start(key);
     return newPage;
+
+  },
+
+  start: function (key){
+    console.log(this.pages[key]);
+    this.pages[key].createComponents.call();
+
   }
+
 };
 
 Banana.PageManager.prototype.constructor = Banana.PageManager;
@@ -99,12 +124,14 @@ Banana.Page = function(application, page){
   /**
   * @property {Banana.Application} banana - This is a reference to the currently running Application
   */
-  this.application = application;
-  this.components = page;
+  this.application = null;
+
+  this.page = null;
 };
 
 Banana.Page.prototype = {
   createComponents: function(){
+    console.log("test");
     this.page.createComponents();
   }
 };
