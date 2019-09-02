@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Hello world application build</title>
+		<link rel="stylesheet" type="text/css" href="css/banana.css" />
+		<link rel="stylesheet" type="text/css" href="css/white.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+	</head>
+<body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="build/Application.min.js"></script>
+		<div id="target"></div>
+			<script>
+			$(document).ready(function(){
+
+				var applicationParameters = {};
+				applicationParameters.renderTarget = 'target';
+				applicationParameters.defaultSection="Home";
+				applicationParameters.paths = {};
+				applicationParameters.paths.pages = "Application.Pages";
+
+				var app = new Banana.Application(applicationParameters);
+				app.run();
+			});
+	</script>
+</body>
+</html>

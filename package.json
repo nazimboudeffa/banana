@@ -1,0 +1,22 @@
+{
+  "name": "banana",
+  "version": "1.0.0",
+  "description": "Banana is a funny open source JavaScript application framework",
+  "main": "gulp scripts",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "banana"
+  ],
+  "author": "Nazim Boudeffa",
+  "license": "ISC"
+}
