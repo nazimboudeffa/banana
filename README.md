@@ -17,3 +17,5 @@ Run the gulp task
     $ gulp scripts
 
 Then just open the tests in the browser
+
+![Social Image](docs/social-image.png)
