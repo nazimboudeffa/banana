@@ -12,18 +12,12 @@
 		}
 	</style>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script type="text/javascript" src="../../build/all.js"></script>
-		<div id="app"></div>
+	<script type="text/javascript" src="../build/all.js"></script>
+		<div id="target"></div>
 		<script>
-			var page = Banana.Page({
-	      createComponents: function(){
-					this.add.text("Hello World!");
-					console.log("ok")
-	      }
-			});
 			$(document).ready(function(){
 				var config = {};
-				config.target = 'app';
+				config.target = 'target';
 			  var app = new Banana.Application(config);
 		    app.run();
 			});

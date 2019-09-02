@@ -5,20 +5,43 @@
 */
 
 Banana.Application = function(config){
-  console.log(config)
-  if (config != null){
-    this.target = config.target;
-  } else {
-    var target = document.createElement('div');
-    target.setAttribute('id', 'target');
-    var textNode = document.createTextNode("Hello Banana");
-    document.getElementById('target').appendChild(textNode);
-  }
+  /**
+  * @property {string|HTMLElement} target - The Application's DOM parent.
+  * @readonly
+  * @default
+  */
+  this.target = null;
+  this.page = null;
+  this.parseConfig(config);
 };
 
 Banana.Application.prototype = {
+  /**
+  * Parses an Application configuration object.
+  *
+  * @method Banana.Application#parseConfig
+  * @protected
+  */
+  parseConfig: function (config)
+  {
+    this.config = config;
+    if (config.target != null){
+      this.target = config.target;
+    } else {
+      this.target = 'target';
+    }
+    if (config.page) {
+      this.page = new Banana.Page(this, config.page);
+    }
+  },
   run: function(){
-    this.add = new Banana.Control(this);
-    this.page = new Banana.Page(this);
+    this.showDebugHeader();
+    this.add = new Banana.BananaControlFactory(this);
+    this.page.components.createComponents();
+  },
+  showDebugHeader: function (){
+    console.log('Banana v1.0.0')
   }
 };
+
+Banana.Application.prototype.constructor = Banana.Application;
