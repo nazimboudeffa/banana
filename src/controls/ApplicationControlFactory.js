@@ -4,11 +4,11 @@
 * @license      {@link https://github.com/nazimboudeffa/banana/blob/master/license.txt|MIT License}
 */
 
-Banana.BananaControlFactory = function(application){
+Banana.ApplicationControlFactory = function(application){
   this.application = application;
 };
 
-Banana.BananaControlFactory.prototype = {
+Banana.ApplicationControlFactory.prototype = {
   text: function(text){
     if (text === 'undefined'){
       this.text = "Hello Banana"
@@ -19,4 +19,4 @@ Banana.BananaControlFactory.prototype = {
   }
 };
 
-Banana.BananaControlFactory.prototype.constructor = Banana.BananaControlFactory;
+Banana.ApplicationControlFactory.prototype.constructor = Banana.ApplicationControlFactory;

@@ -7,7 +7,7 @@ gulp.task('scripts', function() {
     'src/core/Application.js',
     'src/core/PageManager.js',
     'src/core/Page.js',
-    'src/controls/BananaControlFactory.js',
+    'src/controls/ApplicationControlFactory.js',
     'src/controls/Text.js',
     ])
     .pipe(concat('banana.js'))

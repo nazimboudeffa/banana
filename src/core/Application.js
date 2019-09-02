@@ -46,7 +46,7 @@ Banana.Application.prototype = {
 
     this.showDebugHeader();
 
-    this.add = new Banana.BananaControlFactory(this);
+    this.add = new Banana.ApplicationControlFactory(this);
 
     this.page.boot();
 

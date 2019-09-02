@@ -59,7 +59,7 @@ Banana.Application.prototype = {
 
     this.showDebugHeader();
 
-    this.add = new Banana.BananaControlFactory(this);
+    this.add = new Banana.ApplicationControlFactory(this);
 
     this.page.boot();
 
@@ -158,11 +158,11 @@ Banana.Page.prototype.constructor = Banana.Page;
 * @license      {@link https://github.com/nazimboudeffa/banana/blob/master/license.txt|MIT License}
 */
 
-Banana.BananaControlFactory = function(application){
+Banana.ApplicationControlFactory = function(application){
   this.application = application;
 };
 
-Banana.BananaControlFactory.prototype = {
+Banana.ApplicationControlFactory.prototype = {
   text: function(text){
     if (text === 'undefined'){
       this.text = "Hello Banana"
@@ -173,7 +173,7 @@ Banana.BananaControlFactory.prototype = {
   }
 };
 
-Banana.BananaControlFactory.prototype.constructor = Banana.BananaControlFactory;
+Banana.ApplicationControlFactory.prototype.constructor = Banana.ApplicationControlFactory;
 
 /**
 * @author       Nazim Boudeffa <boudeffa@gmail.com>
