@@ -10,7 +10,7 @@ gulp.task('scripts', function() {
     'src/controls/BananaControlFactory.js',
     'src/controls/Text.js',
     ])
-    .pipe(concat('all.js'))
+    .pipe(concat('banana.js'))
     .pipe(gulp.dest('./build/'));
 });
 
@@ -23,6 +23,6 @@ gulp.task('scripts-devs', function() {
     'devs/controls/BananaControlFactory.js',
     'devs/controls/Text.js',
     ])
-    .pipe(concat('all.js'))
+    .pipe(concat('banana.js'))
     .pipe(gulp.dest('./build/'));
 });
