@@ -55,7 +55,7 @@ Banana.Application.prototype = {
   showDebugHeader: function (){
 
     var v = Banana.VERSION;
-    console.log('Banana v' + v + ' | http://kawa-game.ovh/bananajs');
+    console.log('Banana v' + v + ' | http://kawa-games.ovh/bananajs');
 
   }
 };
