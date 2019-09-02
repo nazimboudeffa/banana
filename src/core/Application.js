@@ -10,7 +10,7 @@ Banana.Application = function(config){
 
 Banana.Application.prototype = {
   run: function(){
-    var textNode = document.createTextNode("Basic Example");
+    var textNode = document.createTextNode("Hello Banana");
 		document.getElementById(this.target).appendChild(textNode);
   }
 };

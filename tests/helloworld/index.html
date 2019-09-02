@@ -16,15 +16,15 @@
 	<script type="text/javascript" src="../../build/Application.min.js"></script>
 		<div id="target"></div>
 		<script>
-			var widget = Banana.Page.extend({
+			var widget = Banana.Page({
 	      createComponents : function(){
 					this.addControl("hello world");
 	      }
 			});
 			$(document).ready(function(){
-				var applicationParameters = {};
-				applicationParameters.renderTarget = 'target';
-			  var app = new Banana.Application(applicationParameters);
+				var config = {};
+				config.target = 'target';
+			  var app = new Banana.Application(config);
 		    app.run(new widget());
 			});
 		</script>
