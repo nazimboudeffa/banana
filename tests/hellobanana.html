@@ -13,20 +13,29 @@
 	</style>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script type="text/javascript" src="../build/all.js"></script>
+
 		<div id="target"></div>
+
 		<script>
+
 			$(document).ready(function(){
+
 				var page = {
 					createComponents: function(){
-						app.add.text("Hello World");
+						app.add.text("Hello Banana");
 					}
 				};
+
 				var config = {};
 				config.target = 'target';
 				config.page = page;
+
 			  var app = new Banana.Application(config);
+
 		    app.run(config);
+				
 			});
+
 		</script>
 	</body>
 </html>

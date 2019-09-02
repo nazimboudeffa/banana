@@ -47,8 +47,10 @@ Banana.Application.prototype = {
     } else {
       this.target = 'target';
     }
-    if (config.page) {
+    if (config.page != null) {
       this.page = new Banana.PageManager(this, config.page);
+    } else {
+      console.error("You have to code a banana page");
     }
 
   },
@@ -65,7 +67,8 @@ Banana.Application.prototype = {
 
   showDebugHeader: function (){
 
-    console.log('Banana v1.0.0');
+    var v = Banana.VERSION;
+    console.log('Banana v' + v + ' | http://bananajs.com');
 
   }
 };
