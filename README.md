@@ -18,4 +18,4 @@ Run the gulp task
 
 Then just open the tests in the browser
 
-![Social Image](docs/social-image.png)
+![Social Image](docs/images/banana-dudes.png)
